@@ -1,6 +1,6 @@
 (function () {
 
-  var mainApp = angular.module("mainApp", ['k33g.components']);
+  var mainApp = angular.module("mainApp", ['k33g.components', 'my.components']);
 
 
 })();
