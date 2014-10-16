@@ -9,7 +9,7 @@
       templateUrl: templateUrl,
       link: function(scope, element){
 
-        myLittleSharedServices.sayHello();
+
 
         scope.setText = function(message) {
           scope.title = message;
@@ -23,6 +23,7 @@
         scope.setColor(scope.color);
 
         myLittleSharedServices.initialize(scope);
+        myLittleSharedServices.sayHello("initialize() ok");
 
         //$rootScope.$broadcast('my-title-ready', {id: scope.id});
       },

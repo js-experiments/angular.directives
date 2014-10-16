@@ -4,12 +4,18 @@
     //console.log("component", component)
 
     var sharedService = {
-      sayHello: function() { console.log("Hello from myLittleSharedServices"); },
+      sayHello: function(message) { console.log("sayHello : ", message); },
+
+      onLoaded: function(callback) {
+        console.log("onloaded set")
+        this.onLoad = callback;
+      },
 
       initialize : function (component) {
         console.log("component", component)
         this.component = component;
         this.component.setColor("red")
+        this.onLoad((this.component))
       },
 
       setColor : function (color) {
