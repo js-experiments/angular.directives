@@ -1,46 +1,32 @@
 (function () {
 
-  var HomeCtrl = function ($rootScope, myLittleSharedServices) {
+    /**
+     * Home controller
+     * @constructor
+     */
+    var HomeCtrl = function ($scope) {
 
-    //myLittleSharedServices.setColor("green");
+        /**
+         * Model object for english title
+         * @type {{title: string, color: string}}
+         */
+        $scope.englishModel = {
+            title : 'My english title',
+            color : 'red'
+        };
 
-    $rootScope.$on('my-title-ready', function(event, data) {
+        /**
+         * Model object for german title
+         * @type {{title: string, color: string}}
+         */
+        $scope.germanModel = {
+            title : 'My german title',
+            color : 'green'
+        }
+    };
 
-      console.log('my-title-ready', data)
+    HomeCtrl.$inject = ["$scope"];
 
-      if (data.id=="english") {
-        $rootScope.$broadcast('set-text', {
-          id:"english", message:"Hello world!"
-        });
-      }
-
-      if (data.id=="french") {
-        $rootScope.$broadcast('set-text', {
-          id:"french", message:"Salut tout le monde!"
-        });
-      }
-
-      if (data.id=="german") {
-        $rootScope.$broadcast('set-text', {
-          id:"german", message:"Morgen!"
-        });
-      }
-
-      if (data.id=="klingon") {
-        $rootScope.$broadcast('set-color', {
-          id:"klingon", color:"orange"
-        });
-      }
-
-    });
-
-  };
-
-  HomeCtrl.$inject = ["$rootScope"];
-
-  angular.module("mainApp").controller("HomeCtrl", HomeCtrl);
-
-  //console.log("angular.module('mainApp')", angular.module("mainApp"))
-  //console.log("angular.module('my.components')", angular.module("my.components"))
+    angular.module("mainApp").controller("HomeCtrl", HomeCtrl);
 
 }());
