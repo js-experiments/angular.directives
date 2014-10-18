@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body ng-app="mainApp">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body ng-app="mainApp">
 
-  <div ng-controller="HomeCtrl">
+        <style>
+            .red {
+                color: red;
+            }
+            .blue {
+                color: blue;
+            }
+            .green {
+                color: green;
+            }
+            .orange {
+                color: orange;
+            }
 
-    <my-title id="english" default="???" color="red"></my-title>
-    <my-title id="french" default="???" color="green"></my-title>
-    <my-title id="german" default="???" color="blue"></my-title>
-    <my-title id="klingon" default="nuqneH"></my-title>
+        </style>
 
+        <div ng-controller="HomeCtrl">
 
-    <my-little-title id="001" default="???" color="orange"></my-little-title>
+            <my-title id="english" title="englishModel.title" color="englishModel.color"></my-title>
+            <my-title id="german" title="germanModel.title" color="germanModel.color"></my-title>
 
+            <input ng-model="englishModel.color" placeholder="Type: red, green, blue or orange"><br>
+            <input ng-model="englishModel.title" placeholder="english title"><br>
 
-  </div>
+            <!--<my-little-title id="001" default="???" color="orange"></my-little-title>-->
+        </div>
 
+        <script src="bower_components/angular/angular.js"></script>
 
-  <script src="bower_components/angular/angular.js"></script>
+        <script src="js/k33g.components/components.k33g.js"></script>
+        <script src="js/k33g.components/my-title/my-title.js"></script>
 
-  <script src="js/k33g.components/components.k33g.js"></script>
-  <script src="js/k33g.components/my-title/my-title.js"></script>
+        <script src="js/my.components/components.my.js"></script>
+        <script src="js/my.components/my-little-title/my-little-title.js"></script>
 
-  <script src="js/my.components/components.my.js"></script>
-  <script src="js/my.components/my-little-title/my-little-title.js"></script>
+        <script src="js/mainApp.js"></script>
+        <script src="js/controllers/HomeCtrl.js"></script>
 
-  <script src="js/mainApp.js"></script>
-  <script src="js/controllers/HomeCtrl.js"></script>
-
-</body>
+    </body>
 </html>

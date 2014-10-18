@@ -2,18 +2,8 @@
 
   var HomeCtrl = function ($rootScope, myLittleSharedServices) {
 
-    console.log(myLittleSharedServices);
+    //myLittleSharedServices.setColor("green");
 
-    myLittleSharedServices.sayHello("from HomeCtrl")
-
-    myLittleSharedServices.onLoaded(function(component) {
-      console.log("=== on loaded ===")
-      component.setColor("blue")
-    })
-
-
-
-    /* pas beau */
     $rootScope.$on('my-title-ready', function(event, data) {
 
       console.log('my-title-ready', data)
@@ -46,8 +36,11 @@
 
   };
 
-  HomeCtrl.$inject = ["$rootScope","myLittleSharedServices"];
+  HomeCtrl.$inject = ["$rootScope"];
 
   angular.module("mainApp").controller("HomeCtrl", HomeCtrl);
+
+  //console.log("angular.module('mainApp')", angular.module("mainApp"))
+  //console.log("angular.module('my.components')", angular.module("my.components"))
 
 }());
